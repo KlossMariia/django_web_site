@@ -1,0 +1,20 @@
+{% extends 'main/base.html' %}
+
+{% block title %} Delete Task {% endblock %}
+
+{% block content %}
+    <h1>Delete Task</h1>
+    <form method="POST">
+        {% csrf_token %}
+        <label for="id" class="form-label">Task Number</label>
+        <input class="form-control" id='id' type="text" name='id' placeholder="Task Number"><br>
+        <button type="submit" class="btn btn-success">Delete</button>
+    </form>
+    <br>
+    <h3>Tasks List</h3>
+        <ul>
+            {% for item in tasks %}
+                <li>{{item.title}}  #{{item.pk}}</li>
+            {% endfor %}
+        </ul>
+{% endblock %}
